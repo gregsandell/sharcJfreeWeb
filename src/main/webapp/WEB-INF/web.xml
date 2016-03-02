@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<!DOCTYPE web-app PUBLIC
+"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+-->
+<web-app>
+<listener>
+    <listener-class>net.l8thStreet.sharc.listener.SharcStartupListener</listener-class>
+    <listener-class>net.l8thStreet.sharc.listener.SharcSessionListener</listener-class>
+  </listener>
+  <filter>
+       <filter-name>SessionFilter</filter-name>
+       <filter-class>net.l8thStreet.sharc.filter.SessionFilter</filter-class>
+  </filter>
+  <filter>
+       <filter-name>UserFilter</filter-name>
+       <filter-class>net.l8thStreet.sharc.filter.UserFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+       <filter-name>SessionFilter</filter-name>
+       <url-pattern>/servlet/SharcService</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+       <filter-name>UserFilter</filter-name>
+       <url-pattern>/servlet/SharcService</url-pattern>
+  </filter-mapping>
+    <servlet>
+        <servlet-name>MakePlot</servlet-name>
+        <servlet-class>sharc.MakePlot</servlet-class>
+    </servlet>
+	<servlet>
+		<servlet-name>SharcService</servlet-name>
+		<servlet-class>net.l8thStreet.sharc.servlet.SharcService</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DocList</servlet-name>
+		<servlet-class>net.l8thStreet.sharc.servlet.DocList</servlet-class>
+	</servlet>
+  <servlet>
+    <servlet-name>AjaxInstrumentListGet</servlet-name>
+    <servlet-class>net.l8thStreet.sharc.servlet.AjaxInstrumentListGet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AjaxPitchListGet</servlet-name>
+    <servlet-class>net.l8thStreet.sharc.servlet.AjaxPitchListGet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AjaxAllPitchesGet</servlet-name>
+    <servlet-class>net.l8thStreet.sharc.servlet.AjaxAllPitchesGet</servlet-class>
+  </servlet>
+<servlet>
+  <servlet-name>dwr-invoker</servlet-name>
+  <display-name>DWR Servlet</display-name>
+  <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+  <init-param>
+     <param-name>debug</param-name>
+     <param-value>true</param-value>
+  </init-param>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>dwr-invoker</servlet-name>
+  <url-pattern>/dwr/*</url-pattern>
+</servlet-mapping>
+	<servlet-mapping>
+    <servlet-name>AjaxAllPitchesGet</servlet-name>
+    <url-pattern>/servlet/AjaxAllPitchesGet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AjaxPitchListGet</servlet-name>
+    <url-pattern>/servlet/AjaxPitchListGet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AjaxInstrumentListGet</servlet-name>
+    <url-pattern>/servlet/AjaxInstrumentListGet</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MakePlot</servlet-name>
+        <url-pattern>/servlet/MakePlot</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SharcService</servlet-name>
+		<url-pattern>/servlet/SharcService</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DocList</servlet-name>
+		<url-pattern>/servlet/DocList</url-pattern>
+	</servlet-mapping>
+   <error-page>
+     <exception-type>net.l8thStreet.sharc.exceptions.SharcException</exception-type>
+     <location>/jsp/sharcException.jsp</location>
+   </error-page>
+</web-app>

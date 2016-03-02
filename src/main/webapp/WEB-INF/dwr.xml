@@ -1,0 +1,23 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN"
+    "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+<dwr>
+	<allow>
+		<create creator="new" javascript="JsAllPitches" >
+			<param name="class" value="net.l8thStreet.sharc.dwr.AllPitches" />
+		</create>
+		<create creator="new" javascript="JsAllInstruments" >
+			<param name="class" value="net.l8thStreet.sharc.dwr.AllInstruments" />
+		</create>
+     <create creator="new" javascript="JsPitchesForInst" >
+      <param name="class" value="net.l8thStreet.sharc.dwr.PitchesForInst" />
+    </create>
+		<create creator="new" javascript="JsPitchesForTwoInst" >
+			<param name="class" value="net.l8thStreet.sharc.dwr.PitchesForTwoInst" />
+		</create>
+		<create creator="new" javascript="JsInstrumentsForPitch" >
+			<param name="class" value="net.l8thStreet.sharc.dwr.InstrumentsForPitch" />
+		</create>               
+
+		</allow>
+</dwr>
